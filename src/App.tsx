@@ -9,9 +9,9 @@ import { TableArea } from './components/TableArea'
 
 
 const App = () => {
-  const [list, setList] = useState(items)
-  const [filteredList, setFilteredList] = useState<Item[]>([])
-  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth)
+  const [list, setList] = useState(items);
+  const [filteredList, setFilteredList] = useState<Item[]>([]);
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
 
   useEffect(() => {
     setFilteredList(filterListByMonth(list, currentMonth))
@@ -29,7 +29,7 @@ const App = () => {
 
         {/* {Area de inserção} */}
 
-        <TableArea list={filteredList}/>
+        <TableArea/>
 
       </C.Body>
     </C.Container>
