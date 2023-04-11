@@ -1,18 +1,20 @@
 import { Item } from "../types/Item";
+import { categories } from "../data/categories";
 
 export const getCurrentMonth = () => {
     let now = new Date();
-    return `${now.getFullYear()}-${now.getMonth()+1}`
+    return `${now.getFullYear()}-${now.getMonth() + 1}`
 }
 
 export const filterListByMonth = (list: Item[], date: string):Item[] => {
     let newList: Item[] = [];
     let [year, month] = date.split('-')   
-
+    console.log('list[i].date.getMonth()---------------------\n', list[2].date.getMonth())
+    
     for(let i in list) {
-       if( 
-        list[i].date.getFullYear()=== parseInt(year) &&
-        (list[i].date.getMonth() + 1) === parseInt(month)
+       if ( 
+        list[i].date.getFullYear() === parseInt(year) &&
+        list[i].date.getMonth() + 1 === parseInt(month)
         ) {
             newList.push(list[i]);
         }
@@ -20,6 +22,7 @@ export const filterListByMonth = (list: Item[], date: string):Item[] => {
 
     return newList
 }
+
 export const formatDate = (date: Date): string =>{
     let year = date.getFullYear()
     let month = date.getMonth() + 1
@@ -28,3 +31,9 @@ export const formatDate = (date: Date): string =>{
 }
 
 const addZeroToDate = (n: number): string => n < 10 ? `0${n}` : `${n}`
+
+// export const categoryColor = () => {
+//     let cor = categories.color
+
+//     return cor
+// }
